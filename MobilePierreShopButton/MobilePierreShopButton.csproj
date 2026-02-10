@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AssemblyName>MobilePierreShopButton</AssemblyName>
+    <RootNamespace>MobilePierreShopButton</RootNamespace>
+    <ReferencesPath>$(MSBuildProjectDirectory)/.references</ReferencesPath>
+  </PropertyGroup>
+
+  <Target Name="EnsureReferencesExist" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(ReferencesPath)/StardewModdingAPI.dll')"
+           Text="Missing reference assemblies. Put Stardew 1.6/SMAPI 4.1+ reference DLLs in MobilePierreShopButton/.references (see MobilePierreShopButton/.references/README.md)." />
+  </Target>
+
+  <ItemGroup>
+    <Reference Include="StardewModdingAPI">
+      <HintPath>$(ReferencesPath)/StardewModdingAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Stardew Valley">
+      <HintPath>$(ReferencesPath)/Stardew Valley.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="StardewValley.GameData">
+      <HintPath>$(ReferencesPath)/StardewValley.GameData.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(ReferencesPath)/MonoGame.Framework.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="xTile">
+      <HintPath>$(ReferencesPath)/xTile.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(ReferencesPath)/0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(ReferencesPath)/Newtonsoft.Json.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="manifest.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
