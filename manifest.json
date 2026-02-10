@@ -1,9 +1,0 @@
-{
-  "Name": "Mobile Pierre Shop Button",
-  "Author": "Yenz",
-  "Version": "1.0.1",
-  "Description": "Adds a center-screen mobile touch button to open Pierre's shop.",
-  "UniqueID": "Yenz.MobilePierreShopButton",
-  "EntryDll": "MobilePierreShopButton.dll",
-  "MinimumApiVersion": "4.1.0"
-}
