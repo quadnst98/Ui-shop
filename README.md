@@ -10,15 +10,7 @@ Adds a shop icon button to the HUD. Tapping/clicking the button opens Pierre's s
 - `manifest.json` — SMAPI manifest.
 - `MobilePierreShopButton.csproj` — .NET 5 project file configured for SMAPI mod builds.
 
-## Build (Replit-friendly)
 
-1. Put these files in one folder.
-2. Restore/build with .NET 5 SDK:
-   ```bash
-   dotnet restore
-   dotnet build -c Release
-   ```
-3. Copy output DLL and `manifest.json` to your Stardew Valley Mods folder.
 
 ## Notes
 
