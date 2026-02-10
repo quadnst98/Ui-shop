@@ -10,10 +10,10 @@ using StardewValley.Menus;
 
 namespace MobilePierreShopButton;
 
-public sealed class ModEntry : Mod
+public sealed class MobilePierreShopButton : Mod
 {
-    private const int ButtonWidth = 240;
-    private const int ButtonHeight = 84;
+    private readonly int buttonWidth = 240;
+    private readonly int buttonHeight = 84;
 
     public override void Entry(IModHelper helper)
     {
@@ -27,10 +27,10 @@ public sealed class ModEntry : Mod
             return;
 
         Rectangle bounds = this.GetButtonBounds();
-        SpriteBatch spriteBatch = e.SpriteBatch;
+        SpriteBatch b = e.SpriteBatch;
 
-        IClickableMenu.drawTextureBox(spriteBatch, bounds.X, bounds.Y, bounds.Width, bounds.Height, Color.White);
-        SpriteText.drawStringHorizontallyCenteredAt(spriteBatch, "Pierre", bounds.Center.X, bounds.Y + bounds.Height / 2 - 20);
+        IClickableMenu.drawTextureBox(b, bounds.X, bounds.Y, bounds.Width, bounds.Height, Color.White);
+        SpriteText.drawStringHorizontallyCenteredAt(b, "Pierre", bounds.Center.X, bounds.Y + (bounds.Height / 2) - 20);
     }
 
     private void OnButtonPressed(object? sender, ButtonPressedEventArgs e)
@@ -98,8 +98,8 @@ public sealed class ModEntry : Mod
     private Rectangle GetButtonBounds()
     {
         var viewport = Game1.uiViewport;
-        int x = viewport.Width / 2 - ButtonWidth / 2;
-        int y = viewport.Height / 2 - ButtonHeight / 2;
-        return new Rectangle(x, y, ButtonWidth, ButtonHeight);
+        int x = viewport.Width / 2 - this.buttonWidth / 2;
+        int y = viewport.Height / 2 - this.buttonHeight / 2;
+        return new Rectangle(x, y, this.buttonWidth, this.buttonHeight);
     }
 }

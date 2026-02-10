@@ -1,17 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
-    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <AssemblyName>MobilePierreShopButton</AssemblyName>
     <RootNamespace>MobilePierreShopButton</RootNamespace>
-    <ReferencesPath>$(MSBuildProjectDirectory)/MobilePierreShopButton/.references</ReferencesPath>
-    <UseLocalReferences Condition="Exists('$(ReferencesPath)/StardewModdingAPI.dll')">true</UseLocalReferences>
-    <UseLocalReferences Condition="'$(UseLocalReferences)' == ''">false</UseLocalReferences>
+    <ReferencesPath>$(MSBuildProjectDirectory)/.references</ReferencesPath>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(UseLocalReferences)' == 'true'">
+  <Target Name="EnsureReferencesExist" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(ReferencesPath)/StardewModdingAPI.dll')"
+           Text="Missing reference assemblies. Put Stardew 1.6/SMAPI 4.1+ reference DLLs in MobilePierreShopButton/.references (see MobilePierreShopButton/.references/README.md)." />
+  </Target>
+
+  <ItemGroup>
     <Reference Include="StardewModdingAPI">
       <HintPath>$(ReferencesPath)/StardewModdingAPI.dll</HintPath>
       <Private>false</Private>
@@ -42,12 +45,7 @@
     </Reference>
   </ItemGroup>
 
-  <ItemGroup Condition="'$(UseLocalReferences)' != 'true'">
-    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.1.0" />
-  </ItemGroup>
-
   <ItemGroup>
-    <Compile Include="ModEntry.cs" />
     <None Include="manifest.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>
