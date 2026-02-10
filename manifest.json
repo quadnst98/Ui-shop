@@ -1,0 +1,10 @@
+{
+  "Name": "Mobile Pierre Shop Button",
+  "Author": "Ui-shop",
+  "Version": "1.0.0",
+  "Description": "Adds a HUD shop button on mobile-style touch input to open Pierre's shop during business hours.",
+  "UniqueID": "UiShop.MobilePierreShopButton",
+  "EntryDll": "MobilePierreShopButton.dll",
+  "MinimumApiVersion": "4.0.0",
+  "UpdateKeys": []
+}
